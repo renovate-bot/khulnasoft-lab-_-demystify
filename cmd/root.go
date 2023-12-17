@@ -113,7 +113,7 @@ func initConfig() {
 		os.Exit(1)
 	}
 
-	viper.SetEnvPrefix("DEMYSTIFY")
+	viper.SetEnvPrefix("DIVE")
 	// replace all - with _ when looking for matching environment variables
 	viper.SetEnvKeyReplacer(strings.NewReplacer("-", "_"))
 	viper.AutomaticEnv()

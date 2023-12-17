@@ -12,11 +12,11 @@ inputs:
   cache-key-prefix:
     description: "Prefix all cache keys with this value"
     required: true
-    default: ""
+    default: "efa04b89c1b1"
   build-cache-key-prefix:
     description: "Prefix build cache key with this value"
     required: true
-    default: ""
+    default: "f8b6d31dea"
   bootstrap-apt-packages:
     description: "Space delimited list of tools to install via apt"
     default: ""

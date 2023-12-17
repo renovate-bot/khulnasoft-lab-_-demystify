@@ -186,7 +186,7 @@ ci-test-docker-image:
 		--rm \
 		-t \
 		-v /var/run/docker.sock:/var/run/docker.sock \
-		'${PRODUCTION_REGISTRY}/khulnasoft/demystify:latest' \
+		'${PRODUCTION_REGISTRY}/khulnasoft-lab/demystify:latest' \
 			'${TEST_IMAGE}' \
 			--ci
 

@@ -21,7 +21,7 @@ builds:
 
 brews:
   - repository:
-      owner: khulnasoft-lab
+      owner: khulnasoft
       name: homebrew-demystify
       token: "{{.Env.TAP_GITHUB_TOKEN}}"
     homepage: "https://github.com/khulnasoft-lab/demystify/"

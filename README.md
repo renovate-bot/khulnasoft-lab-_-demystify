@@ -95,16 +95,16 @@ With valid `source` options as such:
 
 **Ubuntu/Debian**
 ```bash
-export DEMYSTIFY_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DEMYSTIFY_VERSION}/demystify_${DEMYSTIFY_VERSION}_linux_amd64.deb
-sudo apt install ./demystify_${DEMYSTIFY_VERSION}_linux_amd64.deb
+export DIVE_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DIVE_VERSION}/demystify_${DIVE_VERSION}_linux_amd64.deb
+sudo apt install ./demystify_${DIVE_VERSION}_linux_amd64.deb
 ```
 
 **RHEL/Centos**
 ```bash
-export DEMYSTIFY_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DEMYSTIFY_VERSION}/demystify_${DEMYSTIFY_VERSION}_linux_amd64.rpm
-rpm -i demystify_${DEMYSTIFY_VERSION}_linux_amd64.rpm
+export DIVE_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DIVE_VERSION}/demystify_${DIVE_VERSION}_linux_amd64.rpm
+rpm -i demystify_${DIVE_VERSION}_linux_amd64.rpm
 ```
 
 **Arch Linux**
