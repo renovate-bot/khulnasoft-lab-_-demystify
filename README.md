@@ -37,7 +37,7 @@ docker run --rm -it \
       -v  "$(pwd)":"$(pwd)" \
       -w "$(pwd)" \
       -v "$HOME/.demystify.yaml":"$HOME/.demystify.yaml" \
-      khulnasoft-lab/demystify:latest build -t <some-tag> .
+      khulnasoft/demystify:latest build -t <some-tag> .
 ```
 
 Additionally you can run this in your CI pipeline to ensure you're keeping wasted space to a minimum (this skips the UI):
@@ -166,7 +166,7 @@ nix-env -iA nixpkgs.demystify
 
 **Docker**
 ```bash
-docker pull khulnasoft-lab/demystify
+docker pull khulnasoft/demystify
 ```
 
 or
