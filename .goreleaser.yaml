@@ -21,7 +21,7 @@ builds:
 
 brews:
   - repository:
-      owner: khulnasoft
+      owner: khulnasoft-lab
       name: homebrew-demystify
       token: "{{.Env.TAP_GITHUB_TOKEN}}"
     homepage: "https://github.com/khulnasoft-lab/demystify/"
@@ -49,9 +49,9 @@ dockers:
     dockerfile: Dockerfile
     # todo: on 1.0 remove 'v' prefix
     image_templates:
-      - "khulnasoft-lab/demystify:latest"
-      - "khulnasoft-lab/demystify:{{ .Tag }}"
-      - "khulnasoft-lab/demystify:v{{ .Major }}"
-      - "khulnasoft-lab/demystify:v{{ .Major }}.{{ .Minor }}"
+      - "khulnasoft/demystify:latest"
+      - "khulnasoft/demystify:{{ .Tag }}"
+      - "khulnasoft/demystify:v{{ .Major }}"
+      - "khulnasoft/demystify:v{{ .Major }}.{{ .Minor }}"
     build_flag_templates:
       - "--build-arg=DOCKER_CLI_VERSION={{.Env.DOCKER_CLI_VERSION}}"

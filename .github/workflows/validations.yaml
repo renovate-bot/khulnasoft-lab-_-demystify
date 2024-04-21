@@ -56,7 +56,7 @@ jobs:
       - name: Build snapshot artifacts
         run: make snapshot
 
-      - run: docker images khulnasoft-lab/demystify
+      - run: docker images khulnasoft/demystify
 
       # todo: compare against known json output in shared volume
       - name: Test production image
