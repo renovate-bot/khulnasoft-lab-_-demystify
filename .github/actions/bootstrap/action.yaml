@@ -12,11 +12,11 @@ inputs:
   cache-key-prefix:
     description: "Prefix all cache keys with this value"
     required: true
-    default: ""
+    default: "20240421"
   build-cache-key-prefix:
     description: "Prefix build cache key with this value"
     required: true
-    default: ""
+    default: "ea5211d6"
   bootstrap-apt-packages:
     description: "Space delimited list of tools to install via apt"
     default: ""
