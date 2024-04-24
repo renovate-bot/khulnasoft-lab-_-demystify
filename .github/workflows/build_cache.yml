@@ -1,0 +1,28 @@
+name: Build Cache Key Prefix
+on: [push, pull_request]
+
+jobs:
+  build-cache-key-prefix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Cache Key Prefix
+        id: build-cache-key
+        run: |
+          # Your script to generate the cache key prefix goes here
+          # For example:
+          CACHE_KEY_PREFIX=$(date +%Y%m%d)-${GITHUB_SHA::8}
+          echo "::set-output name=cache-key-prefix::${CACHE_KEY_PREFIX}"
+
+      - name: Cache key prefix
+        run: echo "Cache key prefix is ${{ steps.build-cache-key.outputs.cache-key-prefix }}"

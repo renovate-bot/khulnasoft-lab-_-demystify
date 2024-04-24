@@ -37,7 +37,7 @@ docker run --rm -it \
       -v  "$(pwd)":"$(pwd)" \
       -w "$(pwd)" \
       -v "$HOME/.demystify.yaml":"$HOME/.demystify.yaml" \
-      khulnasoft-lab/demystify:latest build -t <some-tag> .
+      khulnasoft/demystify:latest build -t <some-tag> .
 ```
 
 Additionally you can run this in your CI pipeline to ensure you're keeping wasted space to a minimum (this skips the UI):
@@ -94,17 +94,27 @@ With valid `source` options as such:
 ## Installation
 
 **Ubuntu/Debian**
+
+Using debs:
 ```bash
-export DIVE_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DIVE_VERSION}/demystify_${DIVE_VERSION}_linux_amd64.deb
-sudo apt install ./demystify_${DIVE_VERSION}_linux_amd64.deb
+DEMYSTIFY_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DEMYSTIFY_VERSION}/demystify_${DEMYSTIFY_VERSION}_linux_amd64.deb
+sudo apt install ./demystify_${DEMYSTIFY_VERSION}_linux_amd64.deb
+```
+
+Using snap:
+```bash
+sudo snap install docker
+sudo snap install demystify
+sudo snap connect demystify:docker-executables docker:docker-executables
+sudo snap connect demystify:docker-daemon docker:docker-daemon
 ```
 
 **RHEL/Centos**
 ```bash
-export DIVE_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DIVE_VERSION}/demystify_${DIVE_VERSION}_linux_amd64.rpm
-rpm -i demystify_${DIVE_VERSION}_linux_amd64.rpm
+DEMYSTIFY_VERSION=$(curl -sL "https://api.github.com/repos/khulnasoft-lab/demystify/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+curl -OL https://github.com/khulnasoft-lab/demystify/releases/download/v${DEMYSTIFY_VERSION}/demystify_${DEMYSTIFY_VERSION}_linux_amd64.rpm
+rpm -i demystify_${DEMYSTIFY_VERSION}_linux_amd64.rpm
 ```
 
 **Arch Linux**
@@ -156,27 +166,27 @@ nix-env -iA nixpkgs.demystify
 
 **Docker**
 ```bash
-docker pull khulnasoft-lab/demystify
+docker pull khulnasoft/demystify
 ```
 
 or
 
 ```bash
-docker pull quay.io/khulnasoft-lab/demystify
+docker pull quay.io/khulnasoft/demystify
 ```
 
 When running you'll need to include the docker socket file:
 ```bash
 docker run --rm -it \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    khulnasoft-lab/demystify:latest <demystify arguments...>
+    khulnasoft/demystify:latest <demystify arguments...>
 ```
 
 Docker for Windows (showing PowerShell compatible line breaks; collapse to a single line for Command Prompt compatibility)
 ```bash
 docker run --rm -it `
     -v /var/run/docker.sock:/var/run/docker.sock `
-    khulnasoft-lab/demystify:latest <demystify arguments...>
+    khulnasoft/demystify:latest <demystify arguments...>
 ```
 
 **Note:** depending on the version of docker you are running locally you may need to specify the docker API version as an environment variable:
@@ -188,7 +198,7 @@ or if you are running with a docker image:
 docker run --rm -it \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -e DOCKER_API_VERSION=1.37 \
-    khulnasoft-lab/demystify:latest <demystify arguments...>
+    khulnasoft/demystify:latest <demystify arguments...>
 ```
 
 ## CI Integration
